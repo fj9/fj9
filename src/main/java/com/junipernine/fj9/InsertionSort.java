@@ -11,31 +11,32 @@ public class InsertionSort implements Sorter {
         if (strings.size() > 1) {
             List<String> sorted = new ArrayList<>(strings.size());
             for (String candidate : strings) {
-                if (sorted.isEmpty())
-                    sorted.add(candidate);
-                else {
-                    for (int i = 0; i < sorted.size(); i++) {
-                        if (candidate.compareTo(sorted.get(i)) >= 0)
-                            if (i < sorted.size() - 1) {
-                                if (candidate.compareTo(sorted.get(i + 1)) <= 0) {
-                                    sorted.add(i + 1, candidate);
-                                    break;
-                                }
-                            } else {
-                                sorted.add(candidate);
-                                break;
-                            }
-                        else {
-                            sorted.add(i, candidate);
-                            break;
-                        }
-                    }
-                }
+                sorted.add(establishIndexFor(candidate, sorted), candidate);
+
             }
             return sorted;
         } else {
             return strings;
         }
 
+    }
+
+    private int establishIndexFor(String candidate, List<String> sorted) {
+        if(sorted.isEmpty())
+            return 0;
+        for (int i = 0; i < sorted.size(); i++) {
+            if (candidate.compareTo(sorted.get(i)) >= 0)
+                if (i < sorted.size() - 1) {
+                    if (candidate.compareTo(sorted.get(i + 1)) <= 0) {
+                        return i + 1;
+                    }
+                } else {
+                    return sorted.size();
+                }
+            else {
+                return i;
+            }
+        }
+        return sorted.size();
     }
 }
