@@ -12,7 +12,6 @@ public class InsertionSort implements Sorter {
             List<String> sorted = new ArrayList<>(strings.size());
             for (String candidate : strings) {
                 sorted.add(establishIndexFor(candidate, sorted), candidate);
-
             }
             return sorted;
         } else {

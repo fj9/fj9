@@ -24,11 +24,9 @@ public class SelectionSort implements Sorter {
         } else {
             return strings;
         }
-
     }
 
     private boolean smallestString(String candidate, List<String> strings) {
-
         for (String s : strings) {
             if (candidate.compareTo(s) > 0)
                 return false;
