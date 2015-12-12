@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created on 06/12/2015.
  */
-public class MergeSort {
+public class MergeSort implements Sorter {
 
     public List<String> sort(List<String> strings) {
         if (strings.size() > 1) {

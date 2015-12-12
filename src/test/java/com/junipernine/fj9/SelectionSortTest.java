@@ -3,53 +3,46 @@ package com.junipernine.fj9;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-
 /**
- * Created on 06/12/2015.
+ * Created on 12/12/2015.
  */
-public class QuickSortTest {
-    QuickSort quickSort;
+public class SelectionSortTest {
+    SelectionSort selectionSort;
 
     @Before
     public void setUp() throws Exception {
-        quickSort = new QuickSort();
+        selectionSort = new SelectionSort();
 
     }
 
     @Test
     public void testOneString() throws Exception {
-        SortTests.testOneString(quickSort);
+        SortTests.testOneString(selectionSort);
     }
 
     @Test
     public void testTwoStrings() throws Exception {
-        SortTests.testTwoStrings(quickSort);
+        SortTests.testTwoStrings(selectionSort);
     }
 
     @Test
     public void testFourStrings() throws Exception {
-        SortTests.testFourStrings(quickSort);
+        SortTests.testFourStrings(selectionSort);
     }
 
     @Test
     public void testThreeStrings() throws Exception {
-        SortTests.testThreeStrings(quickSort);
+        SortTests.testThreeStrings(selectionSort);
     }
 
     @Test
     public void testMany() throws Exception {
-        SortTests.testMany(quickSort);
+        SortTests.testMany(selectionSort);
     }
 
     @Test
     public void testDuplicates() throws Exception {
-        SortTests.testDuplicates(quickSort);
+        SortTests.testDuplicates(selectionSort);
     }
 
 }

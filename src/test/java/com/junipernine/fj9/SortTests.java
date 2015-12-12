@@ -7,65 +7,53 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 /**
- * Created by f.juniper-nine on 11/12/2015.
+ * Created on 12/12/2015.
  */
-public class QuickSortTest {
-    QuickSort quickSort;
+public class SortTests {
 
-    @Before
-    public void setUp() throws Exception {
-        quickSort = new QuickSort();
-
-    }
-
-    @Test
-    public void testOneString() throws Exception {
+    public static void testOneString(Sorter sorter) throws Exception {
         List<String> toSort = new ArrayList<String>();
         toSort.add("bob");
-        List<String> result = quickSort.sort(toSort);
+        List<String> result = sorter.sort(toSort);
         List<String> expected = toSort;
         assertThat(result, is(expected));
     }
 
-    @Test
-    public void testTwoStrings() throws Exception {
+    public static void testTwoStrings(Sorter sorter) throws Exception {
         List<String> toSort = new ArrayList<String>();
         toSort.add("bob");
         toSort.add("amy");
-        List<String> result = quickSort.sort(toSort);
+        List<String> result = sorter.sort(toSort);
         List<String> expected = Arrays.asList("amy", "bob");
         assertThat(result, is(expected));
     }
 
-    @Test
-    public void testFourStrings() throws Exception {
+    public static void testFourStrings(Sorter sorter) throws Exception {
         List<String> toSort = new ArrayList<String>();
         toSort.add("bob");
         toSort.add("amy");
         toSort.add("dylan");
         toSort.add("chris");
-        List<String> result = quickSort.sort(toSort);
+        List<String> result = sorter.sort(toSort);
         List<String> expected = Arrays.asList("amy", "bob", "chris", "dylan");
         assertThat(result, is(expected));
     }
 
-    @Test
-    public void testThreeStrings() throws Exception {
+    public static void testThreeStrings(Sorter sorter) throws Exception {
         List<String> toSort = new ArrayList<String>();
         toSort.add("amy");
         toSort.add("chris");
         toSort.add("dylan");
-        List<String> result = quickSort.sort(toSort);
+        List<String> result = sorter.sort(toSort);
         List<String> expected = Arrays.asList("amy", "chris", "dylan");
         assertThat(result, is(expected));
     }
 
-    @Test
-    public void testMany() throws Exception {
+    public static void testMany(Sorter sorter) throws Exception {
         List<String> toSort = new ArrayList<String>();
         toSort.add("jill");
         toSort.add("amy");
@@ -78,13 +66,12 @@ public class QuickSortTest {
         toSort.add("jim");
         toSort.add("dylan");
         toSort.add("chris");
-        List<String> result = quickSort.sort(toSort);
+        List<String> result = sorter.sort(toSort);
         List<String> expected = Arrays.asList("amy", "bob", "chris", "dylan", "fred", "george", "jill", "jim", "lol", "mark", "zach");
         assertThat(result, is(expected));
     }
 
-    @Test
-    public void testDuplicates() throws Exception {
+    public static void testDuplicates(Sorter sorter) throws Exception {
         List<String> toSort = new ArrayList<String>();
         toSort.add("bob");
         toSort.add("amy");
@@ -92,9 +79,8 @@ public class QuickSortTest {
         toSort.add("dylan");
         toSort.add("dylan");
         toSort.add("chris");
-        List<String> result = quickSort.sort(toSort);
+        List<String> result = sorter.sort(toSort);
         List<String> expected = Arrays.asList("amy", "bob", "chris", "dylan", "dylan", "dylan");
         assertThat(result, is(expected));
     }
-
 }

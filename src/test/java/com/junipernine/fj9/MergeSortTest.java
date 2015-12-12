@@ -3,13 +3,7 @@ package com.junipernine.fj9;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 
 /**
  * Created on 06/12/2015.
@@ -25,59 +19,31 @@ public class MergeSortTest {
 
     @Test
     public void testOneString() throws Exception {
-        List<String> toSort = new ArrayList<String>();
-        toSort.add("bob");
-        List<String> result = mergeSort.sort(toSort);
-        List<String> expected = toSort;
-        assertThat(result, is(expected));
+        SortTests.testOneString(mergeSort);
     }
 
     @Test
     public void testTwoStrings() throws Exception {
-        List<String> toSort = new ArrayList<String>();
-        toSort.add("bob");
-        toSort.add("amy");
-        List<String> result = mergeSort.sort(toSort);
-        List<String> expected = Arrays.asList("amy", "bob");
-        assertThat(result, is(expected));
+        SortTests.testTwoStrings(mergeSort);
     }
 
     @Test
     public void testFourStrings() throws Exception {
-        List<String> toSort = new ArrayList<String>();
-        toSort.add("bob");
-        toSort.add("amy");
-        toSort.add("dylan");
-        toSort.add("chris");
-        List<String> result = mergeSort.sort(toSort);
-        List<String> expected = Arrays.asList("amy", "bob", "chris", "dylan");
-        assertThat(result , is(expected));
+        SortTests.testFourStrings(mergeSort);
     }
+
+    @Test
+    public void testThreeStrings() throws Exception {
+        SortTests.testThreeStrings(mergeSort);
+    }
+
     @Test
     public void testMany() throws Exception {
-        List<String> toSort = new ArrayList<String>();
-        toSort.add("bob");
-        toSort.add("amy");
-        toSort.add("fred");
-        toSort.add("george");
-        toSort.add("jim");
-        toSort.add("dylan");
-        toSort.add("chris");
-        List<String> result = mergeSort.sort(toSort);
-        List<String> expected = Arrays.asList("amy", "bob", "chris", "dylan", "fred", "george", "jim");
-        assertThat(result , is(expected));
+        SortTests.testMany(mergeSort);
     }
+
     @Test
     public void testDuplicates() throws Exception {
-        List<String> toSort = new ArrayList<String>();
-        toSort.add("bob");
-        toSort.add("amy");
-        toSort.add("dylan");
-        toSort.add("dylan");
-        toSort.add("dylan");
-        toSort.add("chris");
-        List<String> result = mergeSort.sort(toSort);
-        List<String> expected = Arrays.asList("amy", "bob", "chris", "dylan", "dylan", "dylan");
-        assertThat(result , is(expected));
+        SortTests.testDuplicates(mergeSort);
     }
 }

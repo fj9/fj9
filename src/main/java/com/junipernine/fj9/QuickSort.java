@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created on 06/12/2015.
  */
-public class QuickSort {
+public class QuickSort implements Sorter{
 
     public List<String> sort(List<String> strings) {
         if (strings.size() > 1) {
@@ -21,9 +21,9 @@ public class QuickSort {
 
     private List<String> sort(int lowerIndex, int higherIndex, List<String> strings) {
         if (higherIndex - lowerIndex > 0) {
-            String partitionItem = strings.get(lowerIndex);
 
-            int partitionItemIndex = lowerIndex;
+            int partitionItemIndex = lowerIndex + (higherIndex - lowerIndex) / 2;
+            String partitionItem = strings.get(partitionItemIndex);
             int left = lowerIndex;
             int right = higherIndex;
             while (left < right) {
@@ -41,6 +41,5 @@ public class QuickSort {
         }
         return strings;
     }
-
 
 }
