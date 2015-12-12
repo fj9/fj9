@@ -3,15 +3,8 @@ package com.junipernine.fj9;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-
 /**
- * Created on 06/12/2015.
+ * Created on 06/12/2015.‚
  */
 public class QuickSortTest {
     QuickSort quickSort;

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created on 06/12/2015.
  */
-public class QuickSort implements Sorter{
+public class QuickSort implements Sorter {
 
     public List<String> sort(List<String> strings) {
         if (strings.size() > 1) {
@@ -20,26 +20,31 @@ public class QuickSort implements Sorter{
     }
 
     private List<String> sort(int lowerIndex, int higherIndex, List<String> strings) {
+
         if (higherIndex - lowerIndex > 0) {
 
-            int partitionItemIndex = lowerIndex + (higherIndex - lowerIndex) / 2;
-            String partitionItem = strings.get(partitionItemIndex);
+            int partitionItemIndex = (int) Math.floor(higherIndex / 2);
+            String partitionItem = strings.get(lowerIndex);
             int left = lowerIndex;
             int right = higherIndex;
-            while (left < right) {
-                while (left <= higherIndex && strings.get(left).compareTo(partitionItem) <= 0) {
+            while (right > left) {
+                while (left <= higherIndex && strings.get(left).compareTo(partitionItem) <= 0 && right > left) {
                     left++;
                 }
-                if (left < right) {
-                    Collections.swap(strings, left, right);
-                    right--;
+                while (right >= lowerIndex && strings.get(right).compareTo(partitionItem) > 0 && right >= left) {
+                    right --;
                 }
+                if (left <= right) {
+                    Collections.swap(strings, left, right);
+                }
+
             }
             Collections.swap(strings, lowerIndex, right);
-            sort(lowerIndex, right - 1, strings);
-            sort(right, higherIndex, strings);
+            sort(lowerIndex, left-1, strings);
+            sort(left, higherIndex, strings);
         }
         return strings;
     }
+
 
 }
